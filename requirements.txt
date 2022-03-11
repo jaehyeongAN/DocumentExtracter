@@ -1,0 +1,4 @@
+pdftotext
+uvicorn
+fastapi
+python-multipart
