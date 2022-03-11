@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # key file
-.pem
+*.pem
