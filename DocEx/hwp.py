@@ -63,14 +63,14 @@ def get_hwp_text(filename):
     #     text = re.sub(r'\x0b','\n',text)
 
 
-    # HWP -> Text
-    converted_file_path = filename.split('.hwp')[0]+'.txt'
-    hwp2txt_cmd = f"hwp5txt {filename} > {converted_file_path}"
-    os.system(hwp2txt_cmd)
+    # # HWP -> Text
+    # converted_file_path = filename.split('.hwp')[0]+'.txt'
+    # hwp2txt_cmd = f"hwp5txt {filename} > {converted_file_path}"
+    # os.system(hwp2txt_cmd)
 
-    # load converted file
-    with open(converted_file_path, 'r', encoding='utf-8') as f:
-        text = f.read()
+    # # load converted file
+    # with open(converted_file_path, 'r', encoding='utf-8') as f:
+    #     text = f.read()
 
     # HWP -> HTML -> parsing text
     converted_file_path = filename.split('.hwp')[0]+'.html'
