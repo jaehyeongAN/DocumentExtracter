@@ -1,7 +1,12 @@
 # DocumentExtracter
 
-### Run server 
+### Install
+```bash
+pip install -r ./DocEx/requirements.txt && pip install -r requirements.txt
 ```
+
+### Run server 
+```bash
 # run server in local server
 sh run_server.sh local
 

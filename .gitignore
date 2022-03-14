@@ -137,3 +137,6 @@ dmypy.json
 
 # directory
 _tmp_uploadfiles/
+
+# etc
+.DS_Store

@@ -8,7 +8,6 @@ COPY . /app
 
 RUN apt-get -y update && \
 	apt -y install build-essential libpoppler-cpp-dev pkg-config python3-dev && \
-	pip install -r ./DocEx/requirements.txt && \
 	pip install -r requirements.txt
 
 # Make port 8001 available to the world outside this container
