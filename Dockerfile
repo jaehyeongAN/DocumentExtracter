@@ -7,6 +7,7 @@ WORKDIR /app
 COPY . /app
 
 RUN apt-get -y update && \
+    apt-get -y install --no-install-recommends default-jdk-headless && \
 	apt -y install build-essential libpoppler-cpp-dev pkg-config python3-dev && \
 	pip install -r requirements.txt
 
