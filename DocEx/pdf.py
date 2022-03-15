@@ -15,12 +15,14 @@
  $ pip install tika
 
 '''
+import re
 from tika import parser
 
 def get_pdf_text(filename):
-    raw = parser.from_file(filename)
-    text = raw['content'].strip()
-
+    raw = parser.from_file(filename, xmlContent=True)
+    body = raw['content'].split('<body>')[1].split('</body>')[0]
+    text = re.sub('<[^>]*>', '', body).strip()
+    
     return text
 
 '''
