@@ -44,6 +44,11 @@ extracted_text = txt.get_txt_text(file_save_path)
 # In local
 uvicorn main:app --port 8001
 
-# If you want to run with external IP and background running
-nohup uvicorn main:app --host 0.0.0.0 --port 8001 --ssl-keyfile ./key.pem --ssl-certfile ./cert.pem &
+# If you want to run with external IP and background running.
+nohup uvicorn main:app --host 0.0.0.0 --port 8001 &
 ```
+#### Endpoint
+- <code>/pdf-extract</code>
+- <code>/docx-extract</code>
+- <code>/hwp-extract</code>
+- <code>/txt-extract</code>
