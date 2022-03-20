@@ -6,6 +6,37 @@ import struct
 
 
 def get_hwp_text(filename):
+
+    # Option 1. HWP -> Text
+    # converted_file_path = filename.split('.hwp')[0]+'.txt'
+    # hwp2txt_cmd = f"hwp5txt {filename} > {converted_file_path}"
+    # os.system(hwp2txt_cmd)
+
+    # Option 2. HWP -> HTML -> parsing text
+    converted_file_path = filename.split('.hwp')[0]+'.html'
+    hwp2html_cmd = f"hwp5html {filename} --html --output {converted_file_path}"
+    os.system(hwp2html_cmd) # convert .hwp to .txt and save file
+
+    # load converted file
+    with open(converted_file_path, 'r', encoding='utf-8') as f:
+        html = f.read()
+        html = html.replace('<p class="Normal parashape-13"></p>','\n').replace('<p class="Normal parashape-13">','').replace('</p>','\n').replace('&#13;','')
+
+    # strip html
+    text = re.sub('<[^>]*>', '', html)
+    # strip css
+    css_list = [i for i in re.finditer(';\n}',text)]
+    text = text[css_list[-1].end():]
+    
+    text = text.replace('&lt;','<').replace('&gt;','>')
+    text = text.strip()
+
+    # remove converted file
+    if converted_file_path:
+        os.remove(converted_file_path)
+
+
+
     # f = olefile.OleFileIO(filename)
     # dirs = f.listdir()
 
@@ -61,39 +92,6 @@ def get_hwp_text(filename):
     #     text = re.sub(u'[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff\u3300-\u33ff\ufe30-\ufe4f\uf900-\ufaff]','', text) # remove 한자
     #     text = re.sub(r'[\x02|\x15]',r'',text)
     #     text = re.sub(r'\x0b','\n',text)
-
-
-    # # HWP -> Text
-    # converted_file_path = filename.split('.hwp')[0]+'.txt'
-    # hwp2txt_cmd = f"hwp5txt {filename} > {converted_file_path}"
-    # os.system(hwp2txt_cmd)
-
-    # # load converted file
-    # with open(converted_file_path, 'r', encoding='utf-8') as f:
-    #     text = f.read()
-
-    # HWP -> HTML -> parsing text
-    converted_file_path = filename.split('.hwp')[0]+'.html'
-    hwp2html_cmd = f"hwp5html {filename} --html --output {converted_file_path}"
-    os.system(hwp2html_cmd) # convert .hwp to .txt and save file
-
-    # load converted file
-    with open(converted_file_path, 'r', encoding='utf-8') as f:
-        html = f.read()
-        html = html.replace('<p class="Normal parashape-13"></p>','\n').replace('<p class="Normal parashape-13">','').replace('</p>','\n').replace('&#13;','')
-
-    # strip html
-    text = re.sub('<[^>]*>', '', html)
-    # strip css
-    css_list = [i for i in re.finditer(';\n}',text)]
-    text = text[css_list[-1].end():]
-    
-    text = text.replace('&lt;','<').replace('&gt;','>')
-    text = text.strip()
-
-    # remove converted file
-    if converted_file_path:
-        os.remove(converted_file_path)
 
     
     return text
