@@ -7,9 +7,10 @@ pycparser==2.20
 six==1.15.0
 sortedcontainers==2.2.2
 
-pdftotext
-pyhwp
+# pdftotext==2.2.2
+pyhwp==0.1b15
 tika==1.24
+
 uvicorn
 fastapi
 python-multipart

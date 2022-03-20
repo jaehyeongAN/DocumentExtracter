@@ -60,8 +60,8 @@ async def document_extract(file: UploadFile = File(...)):
             fp.write(file_content)
 
         # extract text
-        text = pdf.get_pdf_text(file_save_path)
-        os.remove(file_save_path)
+        text = pdf.get_pdf_text(file_save_path, backend='tika')
+        os.remove(file_save_path) # remove file
 
     except Exception as e:
         logger.error(f"{traceback.format_exc()}")
@@ -80,7 +80,7 @@ async def document_extract(file: UploadFile = File(...)):
 
         # extract text
         text = docx.get_docx_text(file_save_path)
-        os.remove(file_save_path)
+        os.remove(file_save_path) # remove file
 
     except Exception as e:
         logger.error(f"{traceback.format_exc()}")
@@ -99,7 +99,7 @@ async def document_extract(file: UploadFile = File(...)):
 
         # extract text
         text = hwp.get_hwp_text(file_save_path)
-        os.remove(file_save_path)
+        os.remove(file_save_path) # remove file
 
     except Exception as e:
         logger.error(f"{traceback.format_exc()}")
@@ -118,7 +118,7 @@ async def document_extract(file: UploadFile = File(...)):
 
         # extract text
         text = txt.get_txt_text(file_save_path)
-        os.remove(file_save_path)
+        os.remove(file_save_path) # remove file
 
     except Exception as e:
         logger.error(f"{traceback.format_exc()}")
