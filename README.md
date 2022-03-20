@@ -52,3 +52,10 @@ nohup uvicorn main:app --host 0.0.0.0 --port 8001 &
 - <code>/docx-extract</code>
 - <code>/hwp-extract</code>
 - <code>/txt-extract</code>
+
+
+## References
+- https://github.com/iml1111/DocEx
+- http://aispiration.com/nlp2/regex-import-text.html
+- https://pypi.org/project/pyhwp/
+- https://m.post.naver.com/viewer/postView.nhn?volumeNo=28871327&memberNo=34865381
