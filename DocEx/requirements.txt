@@ -6,3 +6,7 @@ pdfminer.six==20201018
 pycparser==2.20
 six==1.15.0
 sortedcontainers==2.2.2
+
+# pdftotext==2.2.2
+pyhwp==0.1b15
+tika==1.24
