@@ -42,10 +42,10 @@ extracted_text = txt.get_txt_text(file_save_path)
 ### 2. Run as REST API (by FastAPI)
 ```bash
 # In local
-uvicorn main:app --port 8001
+uvicorn main:app
 
 # If you want to run with external IP and background running.
-nohup uvicorn main:app --host 0.0.0.0 --port 8001 &
+nohup uvicorn main:app --host 0.0.0.0 &
 ```
 #### Endpoint
 - <code>/pdf-extract</code>
