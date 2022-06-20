@@ -1,4 +1,4 @@
-# DocumentExtracter
+# 🔖 DocumentExtracter
 
 ## Functions
 - Extract text from .pdf, .docx, .hwp, .txt format (but, the text extraction is not perfect.)
