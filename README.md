@@ -61,6 +61,6 @@ nohup uvicorn main:app --host 0.0.0.0 &
 - https://m.post.naver.com/viewer/postView.nhn?volumeNo=28871327&memberNo=34865381
 
 
--- 
-checklist
-- [ ] [docx2python](https://pypi.org/project/docx2python/)
+---
+_**checklist**_
+- [ ] [docx2python](https://pypi.org/project/docx2python/) - Extract docx headers, footers, text, footnotes, endnotes, properties, and images to a Python object.
