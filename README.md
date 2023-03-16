@@ -59,3 +59,8 @@ nohup uvicorn main:app --host 0.0.0.0 &
 - http://aispiration.com/nlp2/regex-import-text.html
 - https://pypi.org/project/pyhwp/
 - https://m.post.naver.com/viewer/postView.nhn?volumeNo=28871327&memberNo=34865381
+
+
+-- 
+checklist
+- [ ] [docx2python](https://pypi.org/project/docx2python/)
